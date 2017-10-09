@@ -31,7 +31,7 @@ Current Status: __Prototype__
     
 3. Open your browser at:
 
-    http://localhost:8080
+    http://localhost:8080/images
     
 # Test
     
