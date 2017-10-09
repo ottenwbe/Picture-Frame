@@ -1,6 +1,5 @@
 package de.ottenwbe.homedisplay.images;
 
-import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,10 +10,6 @@ import javax.imageio.IIOException;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Copyright (c) 2017 Beate Ottenwälder
@@ -47,12 +42,10 @@ public class SynchronizationService {
     // array of supported extensions (use a List if you prefer)
     private static final String IMAGE_EXTENSION = "jpg";
 
-    private static final String IMAGE_PREFIX = ""; //TODO: as param
-
-    @Value("${images.sync.path:}") //TODO: remove fixed value
+    @Value("${images.sync.path:}")
     private String imagePath;
 
-    @Value("${images.sync.init.enabled:true}") //TODO: as param
+    @Value("${images.sync.init.enabled:true}")
     private Boolean initEnabled;
 
     private volatile boolean synchronizing = false;
@@ -141,7 +134,7 @@ public class SynchronizationService {
     }
 
     // filter to identify images based on their extensions
-    private static final FilenameFilter IMAGE_FILTER = (dir, name) -> name.endsWith(String.format(".%s", IMAGE_EXTENSION)) && name.startsWith(IMAGE_PREFIX);
+    private static final FilenameFilter IMAGE_FILTER = (dir, name) -> name.endsWith(String.format(".%s", IMAGE_EXTENSION));
 
     private static final FileFilter DIR_FILTER = f -> f.isDirectory();
 

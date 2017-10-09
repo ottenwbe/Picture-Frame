@@ -29,13 +29,15 @@ public class ImageController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public String root(@RequestParam(value = "imageId", required = false, defaultValue = "RND") String imageId, Model model) throws IOException {
+    public String getRoot(
+            @RequestParam(value = "imageId", required = false, defaultValue = "RND") String imageId,
+            Model model) throws IOException {
         model.addAttribute("imageId", imageId);
         return "images";
     }
 
     @RequestMapping(value = "/rnd-image", method = RequestMethod.GET)
-    public ResponseEntity<byte[]> getImg() throws IOException {
+    public ResponseEntity<byte[]> getRandomImage() throws IOException {
         final BufferedImage image = synchronizationService.getRandomImage();
         byte[] imageInByte = SynchronizationService.getImageBytes(image);
         if (imageInByte != null) {
@@ -51,8 +53,8 @@ public class ImageController {
         return new ResponseEntity<>(imageInByte, headers, HttpStatus.OK);
     }
 
-    static class NoImagesAvailableException extends  HttpServerErrorException {
-        NoImagesAvailableException(){
+    static class NoImagesAvailableException extends HttpServerErrorException {
+        NoImagesAvailableException() {
             super(HttpStatus.SERVICE_UNAVAILABLE, "There are currently no images available! We are sorry for the inconvenience!");
         }
     }
