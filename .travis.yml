@@ -4,6 +4,8 @@ jdk:
   - oraclejdk9
   - openjdk8
   - openjdk9
+before_install:
+  - chmod +x mvnw  
 script:
   mvn verify
 after_success:
