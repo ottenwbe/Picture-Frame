@@ -3,7 +3,7 @@ Smart Picture Frame
 
 [![Build Status](https://travis-ci.org/ottenwbe/smart-picture-frame.svg?branch=master)](https://travis-ci.org/ottenwbe/smart-picture-frame)
 [![codecov](https://codecov.io/gh/ottenwbe/smart-picture-frame/branch/master/graph/badge.svg)](https://codecov.io/gh/ottenwbe/smart-picture-frame)
-[![Known Vulnerabilities](https://snyk.io/test/github/ottenwbe/ottenwbe.github.io/badge.svg)](https://snyk.io/test/github/ottenwbe/ottenwbe.github.io)
+[![Known Vulnerabilities](https://snyk.io/test/github/ottenwbe/smart-picture-frame/badge.svg)](https://snyk.io/test/github/ottenwbe/ottenwbe.github.io)
 
 WIP project: The backend service for an IoT enabled picture frame!
 
