@@ -1,0 +1,5 @@
+images:
+  sync:
+    path: "src/test/resources/images"
+    init:
+      enabled: true
